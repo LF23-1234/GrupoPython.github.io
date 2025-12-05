@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión - FitElitePro</title>
+    <meta name="description" content="Accede a tu cuenta de FitElitePro para gestionar tu progreso, rutinas y conexión con entrenadores.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💪</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Variables CSS */
+        :root {
+            --dark-bg: #0a0a0a;
+            --dark-card: #111111;
+            --dark-border: #222222;
+            --accent-gold: #d4af37;
+            --accent-red: #c41e3a;
+            --text-light: #ffffff;
+            --text-gray: #888888;
+            --text-dark: #333333;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            --border-radius: 8px;
+        }
+
+        /* Reset y base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: var(--text-light);
+            background-color: var(--dark-bg);
+            overflow-x: hidden;
+            font-weight: 300;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 400;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+            position: relative;
+            font-weight: 400;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-gray);
+            margin-bottom: 4rem;
+            font-weight: 300;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Header Elegante */
+        .header {
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(20px);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid var(--dark-border);
+            padding: 1rem 0;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 400;
+            color: var(--text-light);
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: var(--accent-gold);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-light);
+            font-weight: 300;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            position: relative;
+            text-transform: uppercase;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-gold);
+        }
+
+        .nav-link.active {
+            color: var(--accent-gold);
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: var(--accent-gold);
+        }
+
+        .login-btn {
+            background: transparent;
+            color: var(--text-light);
+            padding: 0.7rem 2rem;
+            border: 1px solid var(--accent-gold);
+            border-radius: 0;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+
+        .login-btn:hover {
+            background: var(--accent-gold);
+            color: var(--dark-bg);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .bar {
+            width: 25px;
+            height: 2px;
+            background: var(--text-light);
+            margin: 3px 0;
+            transition: var(--transition);
+        }
+
+        /* Botones Elegantes */
+        .btn {
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 0;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+
+        .btn-primary {
+            background: var(--accent-gold);
+            color: var(--dark-bg);
+            border: 1px solid var(--accent-gold);
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--accent-gold);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-light);
+            border: 1px solid var(--text-light);
+        }
+
+        .btn-secondary:hover {
+            background: var(--text-light);
+            color: var(--dark-bg);
+            transform: translateY(-2px);
+        }
+
+        .btn-full {
+            width: 100%;
+        }
+
+        /* Login Section */
+        .login-section {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 6rem 2rem;
+            margin-top: 80px;
+            background: linear-gradient(135deg, rgba(10, 10, 10, 0.9) 0%, rgba(17, 17, 17, 0.95) 100%), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') center/cover;
+        }
+
+        .login-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            max-width: 1000px;
+            width: 100%;
+            align-items: center;
+        }
+
+        .login-content {
+            text-align: left;
+        }
+
+        .login-title {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+            font-weight: 400;
+            line-height: 1.1;
+        }
+
+        .login-title .highlight {
+            color: var(--accent-gold);
+            font-style: italic;
+        }
+
+        .login-description {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        .features-list {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .features-list li {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            color: var(--text-gray);
+        }
+
+        .features-list i {
+            color: var(--accent-gold);
+            width: 20px;
+        }
+
+        /* Login Form */
+        .login-form-container {
+            background: var(--dark-card);
+            border: 1px solid var(--dark-border);
+            padding: 3rem;
+            position: relative;
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .form-header h2 {
+            font-size: 2rem;
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-header p {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        .login-form {
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-light);
+            font-weight: 400;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .input-with-icon {
+            position: relative;
+        }
+
+        .input-with-icon i {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-gray);
+            transition: var(--transition);
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.8rem 1rem 0.8rem 3rem;
+            background: var(--dark-bg);
+            border: 1px solid var(--dark-border);
+            color: var(--text-light);
+            font-family: 'Montserrat', sans-serif;
+            transition: var(--transition);
+            font-size: 0.9rem;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+        }
+
+        .form-group input:focus + i {
+            color: var(--accent-gold);
+        }
+
+        .form-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .remember-me {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-gray);
+        }
+
+        .remember-me input {
+            width: auto;
+        }
+
+        .forgot-password {
+            color: var(--accent-gold);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .forgot-password:hover {
+            text-decoration: underline;
+        }
+
+        .divider {
+            text-align: center;
+            margin: 2rem 0;
+            position: relative;
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        .divider::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: var(--dark-border);
+            z-index: 1;
+        }
+
+        .divider span {
+            background: var(--dark-card);
+            padding: 0 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .social-login {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            padding: 0.8rem 1.5rem;
+            border: 1px solid var(--dark-border);
+            background: var(--dark-bg);
+            color: var(--text-light);
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 0.9rem;
+        }
+
+        .social-btn:hover {
+            border-color: var(--accent-gold);
+            transform: translateY(-2px);
+        }
+
+        .social-btn.google:hover {
+            border-color: #DB4437;
+        }
+
+        .social-btn.facebook:hover {
+            border-color: #4267B2;
+        }
+
+        .social-btn.apple:hover {
+            border-color: #A2AAAD;
+        }
+
+        .signup-link {
+            text-align: center;
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        .signup-link a {
+            color: var(--accent-gold);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .signup-link a:hover {
+            text-decoration: underline;
+        }
+
+        /* Modal de Recuperación */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--dark-card);
+            padding: 3rem;
+            border: 1px solid var(--dark-border);
+            max-width: 500px;
+            width: 90%;
+            animation: slideUp 0.4s ease;
+        }
+
+        @keyframes slideUp {
+            from { 
+                opacity: 0;
+                transform: translate(-50%, -40%);
+            }
+            to { 
+                opacity: 1;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        .close {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-gray);
+            transition: var(--transition);
+            line-height: 1;
+        }
+
+        .close:hover {
+            color: var(--accent-gold);
+        }
+
+        .modal-content h2 {
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        .modal-content p {
+            text-align: center;
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        /* Footer Elegante */
+        .footer {
+            background: var(--dark-card);
+            border-top: 1px solid var(--dark-border);
+            padding: 4rem 0 2rem;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        .footer-logo span {
+            color: var(--accent-gold);
+        }
+
+        .footer-section p {
+            color: var(--text-gray);
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .footer-section h4 {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+            font-size: 1.1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-section ul li a {
+            color: var(--text-gray);
+            text-decoration: none;
+            transition: var(--transition);
+            font-weight: 300;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--accent-gold);
+            padding-left: 5px;
+        }
+
+        .contact-info li {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            color: var(--text-gray);
+            font-weight: 300;
+        }
+
+        .contact-info i {
+            color: var(--accent-gold);
+            width: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--dark-bg);
+            border: 1px solid var(--dark-border);
+            color: var(--text-light);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--accent-gold);
+            border-color: var(--accent-gold);
+            color: var(--dark-bg);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--dark-border);
+            padding-top: 2rem;
+            text-align: center;
+            color: var(--text-gray);
+            font-weight: 300;
+        }
+
+        .footer-bottom a {
+            color: var(--accent-gold);
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .login-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+                max-width: 600px;
+            }
+            
+            .login-content {
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                right: -100%;
+                flex-direction: column;
+                background: var(--dark-card);
+                width: 80%;
+                height: calc(100vh - 70px);
+                padding: 2rem;
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+                transition: var(--transition);
+                border-left: 1px solid var(--dark-border);
+            }
+            
+            .nav-menu.active {
+                right: 0;
+            }
+            
+            .login-title {
+                font-size: 2.5rem;
+            }
+            
+            .login-form-container {
+                padding: 2rem;
+            }
+            
+            .form-options {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: flex-start;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .login-title {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .modal-content {
+                padding: 2rem;
+            }
+        }
+
+        /* Animaciones adicionales */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Efectos de validación */
+        .form-group.error input {
+            border-color: var(--accent-red);
+        }
+
+        .form-group.success input {
+            border-color: #4CAF50;
+        }
+
+        .error-message {
+            color: var(--accent-red);
+            font-size: 0.8rem;
+            margin-top: 0.5rem;
+            display: none;
+        }
+
+        .form-group.error .error-message {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <a href="index.html" style="text-decoration: none;">
+                    <h1 class="logo">FitElite<span>Pro</span></h1>
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Inicio</a></li>
+                <li class="nav-item"><a href="trainers.html" class="nav-link">Entrenadores</a></li>
+                <li class="nav-item"><a href="habits.html" class="nav-link">Mi Progreso</a></li>
+                <li class="nav-item"><a href="articles.html" class="nav-link">Artículos</a></li>
+                <li class="nav-item"><a href="contact.html" class="nav-link">Contacto</a></li>
+                <li class="nav-item"><a href="login.html" class="nav-link login-btn active">Iniciar Sesión</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Login Section -->
+    <section class="login-section">
+        <div class="container">
+            <div class="login-container">
+                <!-- Login Content -->
+                <div class="login-content fade-in">
+                    <h1 class="login-title">BIENVENIDO DE <span class="highlight">NUEVO</span></h1>
+                    <p class="login-description">Accede a tu cuenta personalizada para gestionar tu progreso, rutinas personalizadas y conectar con nuestros entrenadores certificados.</p>
+                    
+                    <ul class="features-list">
+                        <li>
+                            <i class="fas fa-chart-line"></i>
+                            <span>Seguimiento detallado de tu progreso</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-dumbbell"></i>
+                            <span>Rutinas personalizadas actualizadas</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-user-md"></i>
+                            <span>Comunicación directa con entrenadores</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-trophy"></i>
+                            <span>Logros y recompensas por objetivos</span>
+                        </li>
+                    </ul>
+                    
+                    <div class="signup-link">
+                        <p>¿Eres nuevo en FitElitePro? <a href="register.html">Crea una cuenta aquí</a></p>
+                    </div>
+                </div>
+
+                <!-- Login Form -->
+                <div class="login-form-container fade-in">
+                    <div class="form-header">
+                        <h2>INICIAR SESIÓN</h2>
+                        <p>Ingresa tus credenciales para acceder</p>
+                    </div>
+
+                    <form class="login-form" id="loginForm">
+                        <div class="form-group">
+                            <label for="email">CORREO ELECTRÓNICO</label>
+                            <div class="input-with-icon">
+                                <input type="email" id="email" name="email" required>
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="error-message">Por favor ingresa un correo electrónico válido</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password">CONTRASEÑA</label>
+                            <div class="input-with-icon">
+                                <input type="password" id="password" name="password" required>
+                                <i class="fas fa-lock"></i>
+                            </div>
+                            <div class="error-message">La contraseña debe tener al menos 6 caracteres</div>
+                        </div>
+
+                        <div class="form-options">
+                            <div class="remember-me">
+                                <input type="checkbox" id="remember" name="remember">
+                                <label for="remember">Recordarme</label>
+                            </div>
+                            <a href="#" class="forgot-password" onclick="showModal('forgotModal')">¿Olvidaste tu contraseña?</a>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-full">INICIAR SESIÓN</button>
+                    </form>
+
+                    <div class="divider">
+                        <span>O continúa con</span>
+                    </div>
+
+                    <div class="social-login">
+                        <a href="#" class="social-btn google">
+                            <i class="fab fa-google"></i>
+                            <span>Continuar con Google</span>
+                        </a>
+                        <a href="#" class="social-btn facebook">
+                            <i class="fab fa-facebook-f"></i>
+                            <span>Continuar con Facebook</span>
+                        </a>
+                        <a href="#" class="social-btn apple">
+                            <i class="fab fa-apple"></i>
+                            <span>Continuar con Apple</span>
+                        </a>
+                    </div>
+
+                    <div class="signup-link">
+                        <p>¿No tienes una cuenta? <a href="register.html">Regístrate aquí</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal de Recuperación de Contraseña -->
+    <div id="forgotModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('forgotModal')">&times;</span>
+            <h2>RECUPERAR CONTRASEÑA</h2>
+            <p>Ingresa tu correo electrónico y te enviaremos un enlace para restablecer tu contraseña.</p>
+            <form class="login-form" id="forgotForm">
+                <div class="form-group">
+                    <label for="recovery-email">CORREO ELECTRÓNICO</label>
+                    <div class="input-with-icon">
+                        <input type="email" id="recovery-email" name="recovery-email" required>
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="error-message">Por favor ingresa un correo electrónico válido</div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">ENVIAR ENLACE DE RECUPERACIÓN</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-logo">FitElite<span>Pro</span></h3>
+                    <p>Transformando vidas a través del fitness y la salud integral desde 2015. Más de 10,000 clientes satisfechos.</p>
+                    <div class="social-links">
+                        <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com" target="_blank"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>ENLACES RÁPIDOS</h4>
+                    <ul>
+                        <li><a href="index.html">INICIO</a></li>
+                        <li><a href="trainers.html">ENTRENADORES</a></li>
+                        <li><a href="habits.html">MI PROGRESO</a></li>
+                        <li><a href="articles.html">ARTÍCULOS</a></li>
+                        <li><a href="contact.html">CONTACTO</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>PROGRAMAS</h4>
+                    <ul>
+                        <li><a href="#">PÉRDIDA DE PESO</a></li>
+                        <li><a href="#">GANANCIA MUSCULAR</a></li>
+                        <li><a href="#">BIENESTAR INTEGRAL</a></li>
+                        <li><a href="#">ENTRENAMIENTO PERSONAL</a></li>
+                        <li><a href="#">NUTRICIÓN DEPORTIVA</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>CONTACTO</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> AV. FITNESS 123, CIUDAD</li>
+                        <li><i class="fas fa-phone"></i> 829-887-9800</li>
+                        <li><i class="fas fa-envelope"></i> INFO@FITELITEPRO.COM</li>
+                        <li><i class="fas fa-clock"></i> LUN-VIE: 5:00-22:00</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 FITELITE PRO. TODOS LOS DERECHOS RESERVADOS. | <a href="privacy.html">POLÍTICA DE PRIVACIDAD</a> | <a href="terms.html">TÉRMINOS DE SERVICIO</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navegación móvil
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Cerrar menú al hacer clic en enlace
+        document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+        }));
+
+        // Animaciones al hacer scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        fadeElements.forEach(el => {
+            observer.observe(el);
+        });
+
+        // Cambio de color del header al hacer scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(10, 10, 10, 0.98)';
+                header.style.backdropFilter = 'blur(20px)';
+            } else {
+                header.style.background = 'rgba(10, 10, 10, 0.95)';
+                header.style.backdropFilter = 'blur(20px)';
+            }
+        });
+
+        // Validación de formularios
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+
+        function validatePassword(password) {
+            return password.length >= 6;
+        }
+
+        // Formulario de login
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const emailGroup = document.querySelector('#email').closest('.form-group');
+            const passwordGroup = document.querySelector('#password').closest('.form-group');
+            
+            let isValid = true;
+            
+            // Validar email
+            if (!validateEmail(email)) {
+                emailGroup.classList.add('error');
+                isValid = false;
+            } else {
+                emailGroup.classList.remove('error');
+            }
+            
+            // Validar contraseña
+            if (!validatePassword(password)) {
+                passwordGroup.classList.add('error');
+                isValid = false;
+            } else {
+                passwordGroup.classList.remove('error');
+            }
+            
+            if (isValid) {
+                // Simular inicio de sesión exitoso
+                const submitBtn = this.querySelector('button[type="submit"]');
+                const originalText = submitBtn.textContent;
+                
+                submitBtn.textContent = 'INICIANDO SESIÓN...';
+                submitBtn.disabled = true;
+                
+                setTimeout(() => {
+                    alert('¡Inicio de sesión exitoso! Redirigiendo a tu dashboard...');
+                    // En un caso real, aquí redirigiríamos al dashboard
+                    // window.location.href = 'dashboard.html';
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                    this.reset();
+                }, 2000);
+            }
+        });
+
+        // Formulario de recuperación
+        document.getElementById('forgotForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('recovery-email').value;
+            const emailGroup = document.querySelector('#recovery-email').closest('.form-group');
+            
+            if (!validateEmail(email)) {
+                emailGroup.classList.add('error');
+                return;
+            }
+            
+            emailGroup.classList.remove('error');
+            
+            // Simular envío de correo
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            
+            submitBtn.textContent = 'ENVIANDO...';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                alert('¡Te hemos enviado un correo con las instrucciones para restablecer tu contraseña!');
+                closeModal('forgotModal');
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+                this.reset();
+            }, 2000);
+        });
+
+        // Modales
+        function showModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        // Cerrar modal al hacer clic fuera
+        window.onclick = function(event) {
+            const modals = document.querySelectorAll('.modal');
+            modals.forEach(modal => {
+                if (event.target == modal) {
+                    modal.style.display = 'none';
+                }
+            });
+        }
+
+        // Login con redes sociales (simulación)
+        document.querySelectorAll('.social-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                const provider = this.querySelector('span').textContent.replace('Continuar con ', '');
+                alert(`Iniciando sesión con ${provider}...\n\nEn una implementación real, esto conectaría con la API de ${provider}.`);
+            });
+        });
+
+        // Validación en tiempo real
+        document.querySelectorAll('input').forEach(input => {
+            input.addEventListener('blur', function() {
+                const formGroup = this.closest('.form-group');
+                
+                if (this.type === 'email') {
+                    if (!validateEmail(this.value) && this.value !== '') {
+                        formGroup.classList.add('error');
+                    } else {
+                        formGroup.classList.remove('error');
+                    }
+                }
+                
+                if (this.type === 'password') {
+                    if (!validatePassword(this.value) && this.value !== '') {
+                        formGroup.classList.add('error');
+                    } else {
+                        formGroup.classList.remove('error');
+                    }
+                }
+            });
+        });
+
+        // Efectos de focus en inputs
+        document.querySelectorAll('.form-group input').forEach(input => {
+            input.addEventListener('focus', function() {
+                this.closest('.form-group').classList.add('focused');
+            });
+            
+            input.addEventListener('blur', function() {
+                this.closest('.form-group').classList.remove('focused');
+            });
+        });
+    </script>
+</body>
+</html>

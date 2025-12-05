@@ -1,0 +1,1577 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artículos - FitElitePro</title>
+    <meta name="description" content="Descubre los mejores artículos sobre fitness, nutrición y bienestar en FitElitePro. Consejos expertos para tu transformación física.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💪</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Variables CSS */
+        :root {
+            --dark-bg: #0a0a0a;
+            --dark-card: #111111;
+            --dark-border: #222222;
+            --accent-gold: #d4af37;
+            --accent-red: #c41e3a;
+            --text-light: #ffffff;
+            --text-gray: #888888;
+            --text-dark: #333333;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            --border-radius: 8px;
+        }
+
+        /* Reset y base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: var(--text-light);
+            background-color: var(--dark-bg);
+            overflow-x: hidden;
+            font-weight: 300;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 400;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+            position: relative;
+            font-weight: 400;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-gray);
+            margin-bottom: 4rem;
+            font-weight: 300;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Header Elegante */
+        .header {
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(20px);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid var(--dark-border);
+            padding: 1rem 0;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 400;
+            color: var(--text-light);
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: var(--accent-gold);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-light);
+            font-weight: 300;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            position: relative;
+            text-transform: uppercase;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-gold);
+        }
+
+        .nav-link.active {
+            color: var(--accent-gold);
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: var(--accent-gold);
+        }
+
+        .login-btn {
+            background: transparent;
+            color: var(--text-light);
+            padding: 0.7rem 2rem;
+            border: 1px solid var(--accent-gold);
+            border-radius: 0;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+
+        .login-btn:hover {
+            background: var(--accent-gold);
+            color: var(--dark-bg);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .bar {
+            width: 25px;
+            height: 2px;
+            background: var(--text-light);
+            margin: 3px 0;
+            transition: var(--transition);
+        }
+
+        /* Botones Elegantes */
+        .btn {
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 0;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+
+        .btn-primary {
+            background: var(--accent-gold);
+            color: var(--dark-bg);
+            border: 1px solid var(--accent-gold);
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--accent-gold);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-light);
+            border: 1px solid var(--text-light);
+        }
+
+        .btn-secondary:hover {
+            background: var(--text-light);
+            color: var(--dark-bg);
+            transform: translateY(-2px);
+        }
+
+        .btn-small {
+            padding: 0.5rem 1.5rem;
+            font-size: 0.8rem;
+        }
+
+        /* Hero Section - Estilo Premium */
+        .page-hero {
+            min-height: 60vh;
+            background: linear-gradient(135deg, rgba(10, 10, 10, 0.9) 0%, rgba(17, 17, 17, 0.95) 100%), url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1520&q=80') center/cover;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding: 0 2rem;
+            margin-top: 80px;
+        }
+
+        .page-hero-content {
+            max-width: 800px;
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        .page-hero-title {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+            font-weight: 400;
+            line-height: 1.1;
+        }
+
+        .page-hero-title .highlight {
+            color: var(--accent-gold);
+            font-style: italic;
+        }
+
+        .page-hero-description {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+            font-weight: 300;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Articles Layout */
+        .articles-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+        }
+
+        /* Featured Article */
+        .featured-article {
+            margin-bottom: 4rem;
+        }
+
+        .featured-card {
+            background: var(--dark-card);
+            border: 1px solid var(--dark-border);
+            transition: var(--transition);
+            overflow: hidden;
+        }
+
+        .featured-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-gold);
+        }
+
+        .featured-image {
+            height: 400px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .featured-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .featured-card:hover .featured-image img {
+            transform: scale(1.05);
+        }
+
+        .featured-badge {
+            position: absolute;
+            top: 1.5rem;
+            left: 1.5rem;
+            background: var(--accent-gold);
+            color: var(--dark-bg);
+            padding: 0.5rem 1rem;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .featured-content {
+            padding: 2.5rem;
+        }
+
+        .featured-meta {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .meta-item i {
+            color: var(--accent-gold);
+        }
+
+        .featured-content h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+            line-height: 1.3;
+        }
+
+        .featured-content p {
+            color: var(--text-gray);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Articles Grid */
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .article-card {
+            background: var(--dark-card);
+            border: 1px solid var(--dark-border);
+            transition: var(--transition);
+            overflow: hidden;
+        }
+
+        .article-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-gold);
+        }
+
+        .article-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .article-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .article-card:hover .article-image img {
+            transform: scale(1.05);
+        }
+
+        .article-content {
+            padding: 1.5rem;
+        }
+
+        .article-category {
+            color: var(--accent-gold);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .article-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+            line-height: 1.4;
+        }
+
+        .article-content p {
+            color: var(--text-gray);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .article-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-gray);
+            font-size: 0.8rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--dark-border);
+        }
+
+        .article-date {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .article-date i {
+            color: var(--accent-gold);
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: sticky;
+            top: 100px;
+        }
+
+        .sidebar-widget {
+            background: var(--dark-card);
+            border: 1px solid var(--dark-border);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .widget-title {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .widget-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--accent-gold);
+        }
+
+        /* Categories */
+        .categories-list {
+            list-style: none;
+        }
+
+        .category-item {
+            margin-bottom: 0.8rem;
+        }
+
+        .category-link {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-gray);
+            text-decoration: none;
+            transition: var(--transition);
+            padding: 0.5rem 0;
+        }
+
+        .category-link:hover {
+            color: var(--accent-gold);
+            padding-left: 0.5rem;
+        }
+
+        .category-count {
+            background: var(--dark-bg);
+            color: var(--accent-gold);
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+            font-size: 0.8rem;
+        }
+
+        /* Popular Articles */
+        .popular-articles {
+            list-style: none;
+        }
+
+        .popular-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--dark-border);
+        }
+
+        .popular-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .popular-image {
+            width: 80px;
+            height: 80px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .popular-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .popular-content h4 {
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+
+        .popular-content h4 a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .popular-content h4 a:hover {
+            color: var(--accent-gold);
+        }
+
+        .popular-meta {
+            color: var(--text-gray);
+            font-size: 0.8rem;
+        }
+
+        /* Tags */
+        .tags-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            background: var(--dark-bg);
+            color: var(--text-gray);
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--dark-border);
+            text-decoration: none;
+            font-size: 0.8rem;
+            transition: var(--transition);
+        }
+
+        .tag:hover {
+            background: var(--accent-gold);
+            color: var(--dark-bg);
+            border-color: var(--accent-gold);
+        }
+
+        /* Newsletter */
+        .newsletter-form {
+            margin-top: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            background: var(--dark-bg);
+            border: 1px solid var(--dark-border);
+            color: var(--text-light);
+            font-family: 'Montserrat', sans-serif;
+            transition: var(--transition);
+            font-size: 0.9rem;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+        }
+
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 3rem;
+        }
+
+        .page-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--dark-card);
+            border: 1px solid var(--dark-border);
+            color: var(--text-light);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .page-link:hover, .page-link.active {
+            background: var(--accent-gold);
+            color: var(--dark-bg);
+            border-color: var(--accent-gold);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: 4rem 0;
+            background: linear-gradient(135deg, var(--dark-card) 0%, var(--dark-bg) 100%);
+            border-top: 1px solid var(--dark-border);
+            border-bottom: 1px solid var(--dark-border);
+        }
+
+        .cta-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+        }
+
+        .cta-description {
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        /* Footer Elegante */
+        .footer {
+            background: var(--dark-card);
+            border-top: 1px solid var(--dark-border);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        .footer-logo span {
+            color: var(--accent-gold);
+        }
+
+        .footer-section p {
+            color: var(--text-gray);
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .footer-section h4 {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+            font-size: 1.1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-section ul li a {
+            color: var(--text-gray);
+            text-decoration: none;
+            transition: var(--transition);
+            font-weight: 300;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--accent-gold);
+            padding-left: 5px;
+        }
+
+        .contact-info li {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            color: var(--text-gray);
+            font-weight: 300;
+        }
+
+        .contact-info i {
+            color: var(--accent-gold);
+            width: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--dark-bg);
+            border: 1px solid var(--dark-border);
+            color: var(--text-light);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--accent-gold);
+            border-color: var(--accent-gold);
+            color: var(--dark-bg);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--dark-border);
+            padding-top: 2rem;
+            text-align: center;
+            color: var(--text-gray);
+            font-weight: 300;
+        }
+
+        .footer-bottom a {
+            color: var(--accent-gold);
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .articles-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .sidebar {
+                position: static;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                right: -100%;
+                flex-direction: column;
+                background: var(--dark-card);
+                width: 80%;
+                height: calc(100vh - 70px);
+                padding: 2rem;
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+                transition: var(--transition);
+                border-left: 1px solid var(--dark-border);
+            }
+            
+            .nav-menu.active {
+                right: 0;
+            }
+            
+            .page-hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .articles-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .featured-image {
+                height: 300px;
+            }
+            
+            .featured-content {
+                padding: 2rem;
+            }
+            
+            .featured-content h2 {
+                font-size: 1.5rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-hero-title {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .cta-title {
+                font-size: 2rem;
+            }
+            
+            .featured-meta {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+
+        /* Animaciones adicionales */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Loading State */
+        .loading {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-gray);
+        }
+
+        .loading i {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--accent-gold);
+        }
+
+        /* Filter Active State */
+        .category-link.active {
+            color: var(--accent-gold);
+            padding-left: 0.5rem;
+        }
+
+        .category-link.active .category-count {
+            background: var(--accent-gold);
+            color: var(--dark-bg);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <h1 class="logo">FitElite<span>Pro</span></h1>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Inicio</a></li>
+                <li class="nav-item"><a href="trainers.html" class="nav-link">Entrenadores</a></li>
+                <li class="nav-item"><a href="habits.html" class="nav-link">Mi Progreso</a></li>
+                <li class="nav-item"><a href="articles.html" class="nav-link active">Artículos</a></li>
+                <li class="nav-item"><a href="contact.html" class="nav-link">Contacto</a></li>
+                <li class="nav-item"><a href="login.html" class="nav-link login-btn">Iniciar Sesión</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="page-hero">
+        <div class="page-hero-content">
+            <h1 class="page-hero-title">ARTÍCULOS <span class="highlight">EXPERTOS</span></h1>
+            <p class="page-hero-description">Descubre las últimas tendencias, consejos y conocimientos sobre fitness, nutrición y bienestar integral de la mano de nuestros especialistas.</p>
+        </div>
+    </section>
+
+    <!-- Articles Section -->
+    <section class="content-section">
+        <div class="container">
+            <div class="articles-container">
+                <!-- Main Content -->
+                <div class="main-content">
+                    <!-- Featured Article -->
+                    <div id="featured-article" class="featured-article fade-in">
+                        <!-- El artículo destacado se cargará aquí dinámicamente -->
+                        <div class="loading">
+                            <i class="fas fa-spinner fa-spin"></i>
+                            <p>Cargando artículo destacado...</p>
+                        </div>
+                    </div>
+
+                    <!-- Articles Grid -->
+                    <h2 class="section-title" style="text-align: left; margin-bottom: 2rem;">ÚLTIMOS ARTÍCULOS</h2>
+                    
+                    <div id="articles-grid" class="articles-grid">
+                        <!-- Los artículos se cargarán aquí dinámicamente -->
+                        <div class="loading">
+                            <i class="fas fa-spinner fa-spin"></i>
+                            <p>Cargando artículos...</p>
+                        </div>
+                    </div>
+
+                    <!-- Pagination -->
+                    <div id="pagination" class="pagination">
+                        <!-- La paginación se generará dinámicamente -->
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="sidebar">
+                    <!-- Categories Widget -->
+                    <div class="sidebar-widget fade-in">
+                        <h3 class="widget-title">CATEGORÍAS</h3>
+                        <ul id="categories-list" class="categories-list">
+                            <!-- Las categorías se cargarán dinámicamente -->
+                        </ul>
+                    </div>
+
+                    <!-- Popular Articles Widget -->
+                    <div class="sidebar-widget fade-in">
+                        <h3 class="widget-title">ARTÍCULOS POPULARES</h3>
+                        <ul id="popular-articles" class="popular-articles">
+                            <!-- Los artículos populares se cargarán dinámicamente -->
+                        </ul>
+                    </div>
+
+                    <!-- Tags Widget -->
+                    <div class="sidebar-widget fade-in">
+                        <h3 class="widget-title">ETIQUETAS</h3>
+                        <div id="tags-container" class="tags-container">
+                            <!-- Las etiquetas se cargarán dinámicamente -->
+                        </div>
+                    </div>
+
+                    <!-- Newsletter Widget -->
+                    <div class="sidebar-widget fade-in">
+                        <h3 class="widget-title">NEWSLETTER</h3>
+                        <p style="color: var(--text-gray); margin-bottom: 1rem; font-size: 0.9rem;">Recibe los mejores artículos y consejos directamente en tu correo.</p>
+                        <form class="newsletter-form">
+                            <div class="form-group">
+                                <input type="email" placeholder="Tu correo electrónico" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">SUSCRIBIRME</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content fade-in">
+                <h2 class="cta-title">¿TIENES ALGUNA PREGUNTA?</h2>
+                <p class="cta-description">Nuestros especialistas están listos para ayudarte a alcanzar tus objetivos. Agenda una consulta gratuita y recibe un plan personalizado.</p>
+                <a href="contact.html" class="btn btn-primary">AGENDAR CONSULTA</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-logo">FitElite<span>Pro</span></h3>
+                    <p>Transformando vidas a través del fitness y la salud integral desde 2015. Más de 10,000 clientes satisfechos.</p>
+                    <div class="social-links">
+                        <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com" target="_blank"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>ENLACES RÁPIDOS</h4>
+                    <ul>
+                        <li><a href="index.html">INICIO</a></li>
+                        <li><a href="trainers.html">ENTRENADORES</a></li>
+                        <li><a href="habits.html">MI PROGRESO</a></li>
+                        <li><a href="articles.html">ARTÍCULOS</a></li>
+                        <li><a href="contact.html">CONTACTO</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>CATEGORÍAS</h4>
+                    <ul id="footer-categories">
+                        <!-- Las categorías del footer se cargarán dinámicamente -->
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>CONTACTO</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> AV. FITNESS 123, CIUDAD</li>
+                        <li><i class="fas fa-phone"></i> 824-877-9800</li>
+                        <li><i class="fas fa-envelope"></i> INFO@FITELITEPRO.COM</li>
+                        <li><i class="fas fa-clock"></i> LUN-VIE: 5:00am-22:00pm</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 FITELITE PRO. TODOS LOS DERECHOS RESERVADOS. | <a href="privacy.html">POLÍTICA DE PRIVACIDAD</a> | <a href="terms.html">TÉRMINOS DE SERVICIO</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simulación de base de datos con localStorage
+        function initializeDatabase() {
+            // Verificar si ya existe la base de datos simulada
+            if (!localStorage.getItem('fitelitepro_articles')) {
+                // Crear datos de ejemplo
+                const articles = [
+                    {
+                        id: 1,
+                        title: "La Ciencia del Entrenamiento de Fuerza: Maximiza Tus Resultados",
+                        excerpt: "Descubre los principios científicos detrás del desarrollo muscular efectivo y cómo aplicarlos en tus rutinas para obtener resultados óptimos.",
+                        content: "Contenido completo del artículo sobre entrenamiento de fuerza...",
+                        image: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+                        category: "Entrenamiento",
+                        tags: ["Fuerza", "Rutinas", "Técnicas"],
+                        author: "Carlos Méndez",
+                        date: "2023-11-15",
+                        readTime: "8 min",
+                        featured: true,
+                        views: 1250
+                    },
+                    {
+                        id: 2,
+                        title: "Guía Completa de Suplementación para Atletas",
+                        excerpt: "Descubre qué suplementos realmente funcionan y cómo incorporarlos de manera segura en tu rutina de entrenamiento.",
+                        content: "Contenido completo del artículo sobre suplementación...",
+                        image: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1453&q=80",
+                        category: "Nutrición",
+                        tags: ["Suplementos", "Proteínas", "Recetas"],
+                        author: "Ana Rodríguez",
+                        date: "2023-11-12",
+                        readTime: "6 min",
+                        featured: false,
+                        views: 980
+                    },
+                    {
+                        id: 3,
+                        title: "Mindfulness en el Fitness: Conecta Mente y Cuerpo",
+                        excerpt: "Cómo la práctica de mindfulness puede transformar tu experiencia de entrenamiento y acelerar tus resultados.",
+                        content: "Contenido completo del artículo sobre mindfulness...",
+                        image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1520&q=80",
+                        category: "Bienestar",
+                        tags: ["Mentalidad", "Flexibilidad", "Yoga"],
+                        author: "Laura Sánchez",
+                        date: "2023-11-08",
+                        readTime: "5 min",
+                        featured: false,
+                        views: 750
+                    },
+                    {
+                        id: 4,
+                        title: "La Importancia de la Recuperación en el Deporte",
+                        excerpt: "Descubre por qué descansar es tan importante como entrenar y las mejores estrategias para una recuperación óptima.",
+                        content: "Contenido completo del artículo sobre recuperación...",
+                        image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+                        category: "Entrenamiento",
+                        tags: ["Recuperación", "Descanso", "Técnicas"],
+                        author: "Miguel Torres",
+                        date: "2023-11-05",
+                        readTime: "7 min",
+                        featured: false,
+                        views: 620
+                    },
+                    {
+                        id: 5,
+                        title: "Alimentación Consciente: Más Allá de las Calorías",
+                        excerpt: "Aprende a escuchar las señales de tu cuerpo y desarrollar una relación saludable con la comida.",
+                        content: "Contenido completo del artículo sobre alimentación consciente...",
+                        image: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+                        category: "Nutrición",
+                        tags: ["Alimentación", "Recetas", "Salud"],
+                        author: "Sofía Martínez",
+                        date: "2023-11-01",
+                        readTime: "9 min",
+                        featured: false,
+                        views: 890
+                    },
+                    {
+                        id: 6,
+                        title: "Rutinas de Entrenamiento para Principiantes",
+                        excerpt: "Guía completa para quienes comienzan su journey en el fitness, con ejercicios seguros y efectivos.",
+                        content: "Contenido completo del artículo sobre rutinas para principiantes...",
+                        image: "https://images.unsplash.com/photo-1534367507877-0edd93bd013b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+                        category: "Entrenamiento",
+                        tags: ["Rutinas", "Principiantes", "Cardio"],
+                        author: "Javier López",
+                        date: "2023-10-28",
+                        readTime: "10 min",
+                        featured: false,
+                        views: 1120
+                    },
+                    {
+                        id: 7,
+                        title: "Cómo Mantener la Motivación en Tu Transformación",
+                        excerpt: "Estrategias psicológicas probadas para mantener la consistencia y alcanzar tus objetivos a largo plazo.",
+                        content: "Contenido completo del artículo sobre motivación...",
+                        image: "https://images.unsplash.com/photo-1541534741688-6078c5201f64?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80",
+                        category: "Psicología Deportiva",
+                        tags: ["Motivación", "Mentalidad", "Objetivos"],
+                        author: "Elena Ramírez",
+                        date: "2023-10-25",
+                        readTime: "6 min",
+                        featured: false,
+                        views: 540
+                    },
+                    {
+                        id: 8,
+                        title: "Los Beneficios del Yoga para Deportistas",
+                        excerpt: "Cómo incorporar el yoga en tu rutina puede mejorar tu rendimiento y prevenir lesiones.",
+                        content: "Contenido completo del artículo sobre yoga...",
+                        image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1520&q=80",
+                        category: "Bienestar",
+                        tags: ["Yoga", "Flexibilidad", "Recuperación"],
+                        author: "María González",
+                        date: "2023-10-20",
+                        readTime: "7 min",
+                        featured: false,
+                        views: 680
+                    }
+                ];
+
+                // Guardar en localStorage
+                localStorage.setItem('fitelitepro_articles', JSON.stringify(articles));
+            }
+        }
+
+        // Obtener artículos de la "base de datos"
+        function getArticles() {
+            const articles = JSON.parse(localStorage.getItem('fitelitepro_articles')) || [];
+            return articles;
+        }
+
+        // Obtener artículo destacado
+        function getFeaturedArticle() {
+            const articles = getArticles();
+            return articles.find(article => article.featured) || articles[0];
+        }
+
+        // Obtener artículos por categoría
+        function getArticlesByCategory(category) {
+            const articles = getArticles();
+            if (!category || category === 'Todas') return articles;
+            return articles.filter(article => article.category === category);
+        }
+
+        // Obtener artículos populares (más visitados)
+        function getPopularArticles(limit = 3) {
+            const articles = getArticles();
+            return articles
+                .sort((a, b) => b.views - a.views)
+                .slice(0, limit);
+        }
+
+        // Obtener todas las categorías con conteo
+        function getCategories() {
+            const articles = getArticles();
+            const categories = {};
+            
+            articles.forEach(article => {
+                if (categories[article.category]) {
+                    categories[article.category]++;
+                } else {
+                    categories[article.category] = 1;
+                }
+            });
+            
+            return categories;
+        }
+
+        // Obtener todas las etiquetas
+        function getTags() {
+            const articles = getArticles();
+            const tags = new Set();
+            
+            articles.forEach(article => {
+                article.tags.forEach(tag => {
+                    tags.add(tag);
+                });
+            });
+            
+            return Array.from(tags);
+        }
+
+        // Formatear fecha
+        function formatDate(dateString) {
+            const options = { day: 'numeric', month: 'short', year: 'numeric' };
+            const date = new Date(dateString);
+            return date.toLocaleDateString('es-ES', options);
+        }
+
+        // Renderizar artículo destacado
+        function renderFeaturedArticle() {
+            const featuredArticle = getFeaturedArticle();
+            const container = document.getElementById('featured-article');
+            
+            if (!featuredArticle) {
+                container.innerHTML = '<p>No hay artículos destacados disponibles.</p>';
+                return;
+            }
+            
+            container.innerHTML = `
+                <div class="featured-card">
+                    <div class="featured-image">
+                        <img src="${featuredArticle.image}" alt="${featuredArticle.title}">
+                        <div class="featured-badge">ARTÍCULO DESTACADO</div>
+                    </div>
+                    <div class="featured-content">
+                        <div class="featured-meta">
+                            <div class="meta-item">
+                                <i class="fas fa-user"></i>
+                                <span>${featuredArticle.author}</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-calendar"></i>
+                                <span>${formatDate(featuredArticle.date)}</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-clock"></i>
+                                <span>${featuredArticle.readTime} lectura</span>
+                            </div>
+                        </div>
+                        <h2>${featuredArticle.title}</h2>
+                        <p>${featuredArticle.excerpt}</p>
+                        <a href="#" class="btn btn-primary" data-article-id="${featuredArticle.id}">LEER ARTÍCULO COMPLETO</a>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Renderizar artículos en grid
+        function renderArticlesGrid(articles = null, page = 1, articlesPerPage = 6) {
+            const container = document.getElementById('articles-grid');
+            const articlesToRender = articles || getArticles();
+            
+            // Calcular artículos para la página actual
+            const startIndex = (page - 1) * articlesPerPage;
+            const endIndex = startIndex + articlesPerPage;
+            const paginatedArticles = articlesToRender.slice(startIndex, endIndex);
+            
+            if (paginatedArticles.length === 0) {
+                container.innerHTML = '<p>No se encontraron artículos.</p>';
+                return;
+            }
+            
+            let html = '';
+            
+            paginatedArticles.forEach(article => {
+                html += `
+                    <div class="article-card fade-in">
+                        <div class="article-image">
+                            <img src="${article.image}" alt="${article.title}">
+                        </div>
+                        <div class="article-content">
+                            <span class="article-category">${article.category.toUpperCase()}</span>
+                            <h3>${article.title}</h3>
+                            <p>${article.excerpt}</p>
+                            <div class="article-meta">
+                                <div class="article-date">
+                                    <i class="fas fa-calendar"></i>
+                                    <span>${formatDate(article.date)}</span>
+                                </div>
+                                <a href="#" class="btn btn-secondary btn-small" data-article-id="${article.id}">LEER MÁS</a>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            container.innerHTML = html;
+            
+            // Renderizar paginación
+            renderPagination(articlesToRender.length, page, articlesPerPage);
+            
+            // Aplicar animaciones
+            applyFadeInAnimations();
+        }
+
+        // Renderizar paginación
+        function renderPagination(totalArticles, currentPage, articlesPerPage) {
+            const totalPages = Math.ceil(totalArticles / articlesPerPage);
+            const container = document.getElementById('pagination');
+            
+            if (totalPages <= 1) {
+                container.innerHTML = '';
+                return;
+            }
+            
+            let html = '';
+            
+            // Botón anterior
+            if (currentPage > 1) {
+                html += `<a href="#" class="page-link" data-page="${currentPage - 1}"><i class="fas fa-chevron-left"></i></a>`;
+            }
+            
+            // Páginas
+            for (let i = 1; i <= totalPages; i++) {
+                if (i === currentPage) {
+                    html += `<a href="#" class="page-link active" data-page="${i}">${i}</a>`;
+                } else {
+                    html += `<a href="#" class="page-link" data-page="${i}">${i}</a>`;
+                }
+            }
+            
+            // Botón siguiente
+            if (currentPage < totalPages) {
+                html += `<a href="#" class="page-link" data-page="${currentPage + 1}"><i class="fas fa-chevron-right"></i></a>`;
+            }
+            
+            container.innerHTML = html;
+        }
+
+        // Renderizar categorías
+        function renderCategories() {
+            const categories = getCategories();
+            const container = document.getElementById('categories-list');
+            const footerContainer = document.getElementById('footer-categories');
+            
+            let html = '';
+            let footerHtml = '';
+            
+            // Agregar opción "Todas"
+            const totalArticles = getArticles().length;
+            html += `
+                <li class="category-item">
+                    <a href="#" class="category-link active" data-category="Todas">
+                        <span>Todas</span>
+                        <span class="category-count">${totalArticles}</span>
+                    </a>
+                </li>
+            `;
+            
+            // Agregar cada categoría
+            Object.keys(categories).forEach(category => {
+                html += `
+                    <li class="category-item">
+                        <a href="#" class="category-link" data-category="${category}">
+                            <span>${category}</span>
+                            <span class="category-count">${categories[category]}</span>
+                        </a>
+                    </li>
+                `;
+                
+                footerHtml += `<li><a href="#" data-category="${category}">${category.toUpperCase()}</a></li>`;
+            });
+            
+            container.innerHTML = html;
+            footerContainer.innerHTML = footerHtml;
+        }
+
+        // Renderizar artículos populares
+        function renderPopularArticles() {
+            const popularArticles = getPopularArticles();
+            const container = document.getElementById('popular-articles');
+            
+            let html = '';
+            
+            popularArticles.forEach(article => {
+                html += `
+                    <li class="popular-item">
+                        <div class="popular-image">
+                            <img src="${article.image}" alt="${article.title}">
+                        </div>
+                        <div class="popular-content">
+                            <h4><a href="#" data-article-id="${article.id}">${article.title}</a></h4>
+                            <div class="popular-meta">${formatDate(article.date)}</div>
+                        </div>
+                    </li>
+                `;
+            });
+            
+            container.innerHTML = html;
+        }
+
+        // Renderizar etiquetas
+        function renderTags() {
+            const tags = getTags();
+            const container = document.getElementById('tags-container');
+            
+            let html = '';
+            
+            tags.forEach(tag => {
+                html += `<a href="#" class="tag" data-tag="${tag}">${tag}</a>`;
+            });
+            
+            container.innerHTML = html;
+        }
+
+        // Aplicar animaciones de fade-in
+        function applyFadeInAnimations() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            fadeElements.forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        // Filtrar artículos por categoría
+        function filterByCategory(category) {
+            // Actualizar estado activo de categorías
+            document.querySelectorAll('.category-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            event.target.classList.add('active');
+            
+            // Filtrar y renderizar artículos
+            const filteredArticles = getArticlesByCategory(category);
+            renderArticlesGrid(filteredArticles, 1);
+        }
+
+        // Inicializar la aplicación
+        function init() {
+            // Inicializar base de datos simulada
+            initializeDatabase();
+            
+            // Renderizar contenido
+            renderFeaturedArticle();
+            renderArticlesGrid();
+            renderCategories();
+            renderPopularArticles();
+            renderTags();
+            
+            // Aplicar animaciones
+            applyFadeInAnimations();
+            
+            // Configurar event listeners
+            setupEventListeners();
+        }
+
+        // Configurar event listeners
+        function setupEventListeners() {
+            // Navegación móvil
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+
+            // Cerrar menú al hacer clic en enlace
+            document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            }));
+
+            // Cambio de color del header al hacer scroll
+            window.addEventListener('scroll', () => {
+                const header = document.querySelector('.header');
+                if (window.scrollY > 100) {
+                    header.style.background = 'rgba(10, 10, 10, 0.98)';
+                    header.style.backdropFilter = 'blur(20px)';
+                } else {
+                    header.style.background = 'rgba(10, 10, 10, 0.95)';
+                    header.style.backdropFilter = 'blur(20px)';
+                }
+            });
+
+            // Formulario de newsletter
+            document.querySelector('.newsletter-form')?.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('¡Gracias por suscribirte! Te hemos enviado un correo de confirmación.');
+                this.reset();
+            });
+
+            // Efectos hover en tarjetas
+            document.querySelectorAll('.article-card, .featured-card').forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-10px)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+
+            // Filtrado por categorías
+            document.addEventListener('click', function(e) {
+                if (e.target.closest('.category-link')) {
+                    e.preventDefault();
+                    const category = e.target.closest('.category-link').dataset.category;
+                    filterByCategory(category);
+                }
+                
+                // Paginación
+                if (e.target.closest('.page-link')) {
+                    e.preventDefault();
+                    const page = parseInt(e.target.closest('.page-link').dataset.page);
+                    renderArticlesGrid(null, page);
+                }
+                
+                // Clic en artículo
+                if (e.target.closest('[data-article-id]')) {
+                    e.preventDefault();
+                    const articleId = e.target.closest('[data-article-id]').dataset.articleId;
+                    // En una implementación real, aquí redirigirías a la página del artículo
+                    alert(`Redirigiendo al artículo con ID: ${articleId}`);
+                }
+                
+                // Filtrado por etiquetas
+                if (e.target.closest('.tag')) {
+                    e.preventDefault();
+                    const tag = e.target.closest('.tag').dataset.tag;
+                    // En una implementación real, aquí filtrarías por etiqueta
+                    alert(`Filtrando por etiqueta: ${tag}`);
+                }
+            });
+        }
+
+        // Inicializar cuando el DOM esté listo
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>

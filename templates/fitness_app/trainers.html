@@ -1,0 +1,1656 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrenadores - FitElitePro</title>
+    <meta name="description"
+        content="Conoce a nuestro equipo de entrenadores certificados en FitElitePro. Profesionales con años de experiencia en transformación física.">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💪</text></svg>">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Variables CSS */
+        :root {
+            --dark-bg: #0a0a0a;
+            --dark-card: #111111;
+            --dark-border: #222222;
+            --accent-gold: #d4af37;
+            --accent-red: #c41e3a;
+            --text-light: #ffffff;
+            --text-gray: #888888;
+            --text-dark: #333333;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            --border-radius: 8px;
+        }
+
+        /* Reset y base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: var(--text-light);
+            background-color: var(--dark-bg);
+            overflow-x: hidden;
+            font-weight: 300;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 400;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+            position: relative;
+            font-weight: 400;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-gray);
+            margin-bottom: 4rem;
+            font-weight: 300;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Header Elegante */
+        .header {
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(20px);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid var(--dark-border);
+            padding: 1rem 0;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 400;
+            color: var(--text-light);
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: var(--accent-gold);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-light);
+            font-weight: 300;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            position: relative;
+            text-transform: uppercase;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-gold);
+        }
+
+        .nav-link.active {
+            color: var(--accent-gold);
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: var(--accent-gold);
+        }
+
+        .login-btn {
+            background: transparent;
+            color: var(--text-light);
+            padding: 0.7rem 2rem;
+            border: 1px solid var(--accent-gold);
+            border-radius: 0;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+
+        .login-btn:hover {
+            background: var(--accent-gold);
+            color: var(--dark-bg);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .bar {
+            width: 25px;
+            height: 2px;
+            background: var(--text-light);
+            margin: 3px 0;
+            transition: var(--transition);
+        }
+
+        /* Botones Elegantes */
+        .btn {
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 0;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+
+        .btn-primary {
+            background: var(--accent-gold);
+            color: var(--dark-bg);
+            border: 1px solid var(--accent-gold);
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--accent-gold);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-light);
+            border: 1px solid var(--text-light);
+        }
+
+        .btn-secondary:hover {
+            background: var(--text-light);
+            color: var(--dark-bg);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section - Estilo Premium */
+        .page-hero {
+            min-height: 60vh;
+            background: linear-gradient(135deg, rgba(10, 10, 10, 0.9) 0%, rgba(17, 17, 17, 0.95) 100%), url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') center/cover;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding: 0 2rem;
+            margin-top: 80px;
+        }
+
+        .page-hero-content {
+            max-width: 800px;
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        .page-hero-title {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+            font-weight: 400;
+            line-height: 1.1;
+        }
+
+        .page-hero-title .highlight {
+            color: var(--accent-gold);
+            font-style: italic;
+        }
+
+        .page-hero-description {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+            font-weight: 300;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Trainers Grid */
+        .trainers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .trainer-card {
+            background: var(--dark-card);
+            border: 1px solid var(--dark-border);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .trainer-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-gold);
+        }
+
+        .trainer-image {
+            height: 400px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .trainer-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .trainer-card:hover .trainer-image img {
+            transform: scale(1.05);
+        }
+
+        .trainer-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(10, 10, 10, 0.9));
+            padding: 2rem;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .trainer-card:hover .trainer-overlay {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .trainer-specialty {
+            color: var(--accent-gold);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .trainer-content {
+            padding: 2rem;
+        }
+
+        .trainer-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-light);
+            font-weight: 400;
+        }
+
+        .trainer-specialty {
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+
+        .trainer-bio {
+            color: var(--text-gray);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .trainer-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+            padding: 1rem 0;
+            border-top: 1px solid var(--dark-border);
+            border-bottom: 1px solid var(--dark-border);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 1.5rem;
+            color: var(--accent-gold);
+            font-weight: 600;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-gray);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .trainer-skills {
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-item {
+            margin-bottom: 0.8rem;
+        }
+
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.3rem;
+            font-size: 0.9rem;
+        }
+
+        .skill-bar {
+            height: 4px;
+            background: var(--dark-border);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .skill-level {
+            height: 100%;
+            background: var(--accent-gold);
+            border-radius: 2px;
+        }
+
+        /* Specialties Section */
+        .specialties {
+            background: var(--dark-card);
+            border-top: 1px solid var(--dark-border);
+            border-bottom: 1px solid var(--dark-border);
+        }
+
+        .specialties-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .specialty-card {
+            text-align: center;
+            padding: 2rem;
+            transition: var(--transition);
+        }
+
+        .specialty-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .specialty-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: var(--dark-bg);
+            border: 1px solid var(--dark-border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .specialty-card:hover .specialty-icon {
+            border-color: var(--accent-gold);
+            background: var(--accent-gold);
+        }
+
+        .specialty-icon i {
+            font-size: 2rem;
+            color: var(--text-light);
+            transition: var(--transition);
+        }
+
+        .specialty-card:hover .specialty-icon i {
+            color: var(--dark-bg);
+        }
+
+        .specialty-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        .specialty-card p {
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: 4rem 0;
+            background: linear-gradient(135deg, var(--dark-card) 0%, var(--dark-bg) 100%);
+            border-top: 1px solid var(--dark-border);
+        }
+
+        .cta-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+        }
+
+        .cta-description {
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        /* Modal de Disponibilidad */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--dark-card);
+            padding: 3rem;
+            border: 1px solid var(--dark-border);
+            max-width: 900px;
+            width: 95%;
+            max-height: 90vh;
+            overflow-y: auto;
+            animation: slideUp 0.4s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -40%);
+            }
+
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        .close {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-gray);
+            transition: var(--transition);
+            line-height: 1;
+        }
+
+        .close:hover {
+            color: var(--accent-gold);
+        }
+
+        .modal-content h2 {
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        .modal-content p {
+            text-align: center;
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        /* Calendario de Disponibilidad */
+        .availability-container {
+            margin-top: 2rem;
+        }
+
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--dark-border);
+        }
+
+        .calendar-nav {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .calendar-nav-btn {
+            background: var(--dark-bg);
+            border: 1px solid var(--dark-border);
+            color: var(--text-light);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .calendar-nav-btn:hover {
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
+        }
+
+        .current-month {
+            font-size: 1.3rem;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 1px;
+            background: var(--dark-border);
+            border: 1px solid var(--dark-border);
+        }
+
+        .calendar-day-header {
+            background: var(--dark-bg);
+            padding: 1rem;
+            text-align: center;
+            font-weight: 600;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        .calendar-day {
+            background: var(--dark-bg);
+            padding: 1rem;
+            min-height: 100px;
+            border: 1px solid var(--dark-border);
+            transition: var(--transition);
+        }
+
+        .calendar-day:hover {
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        .day-number {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-light);
+        }
+
+        .availability-slots {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+
+        .time-slot {
+            background: rgba(212, 175, 55, 0.2);
+            border: 1px solid var(--accent-gold);
+            color: var(--accent-gold);
+            padding: 0.3rem 0.5rem;
+            border-radius: 3px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .time-slot:hover {
+            background: var(--accent-gold);
+            color: var(--dark-bg);
+        }
+
+        .time-slot.booked {
+            background: rgba(196, 30, 58, 0.2);
+            border-color: var(--accent-red);
+            color: var(--accent-red);
+            cursor: not-allowed;
+        }
+
+        .time-slot.booked:hover {
+            background: rgba(196, 30, 58, 0.3);
+            color: var(--accent-red);
+        }
+
+        .empty-day {
+            background: var(--dark-card);
+            color: var(--text-gray);
+        }
+
+        /* Formulario de Reserva */
+        .booking-form {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--dark-border);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-light);
+            font-weight: 400;
+            font-size: 0.9rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            background: var(--dark-bg);
+            border: 1px solid var(--dark-border);
+            color: var(--text-light);
+            font-family: 'Montserrat', sans-serif;
+            transition: var(--transition);
+            font-size: 0.9rem;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+        }
+
+        .selected-slot-info {
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid var(--accent-gold);
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            border-radius: 4px;
+        }
+
+        .selected-slot-info h4 {
+            color: var(--accent-gold);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer Elegante */
+        .footer {
+            background: var(--dark-card);
+            border-top: 1px solid var(--dark-border);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        .footer-logo span {
+            color: var(--accent-gold);
+        }
+
+        .footer-section p {
+            color: var(--text-gray);
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .footer-section h4 {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+            font-size: 1.1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-section ul li a {
+            color: var(--text-gray);
+            text-decoration: none;
+            transition: var(--transition);
+            font-weight: 300;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--accent-gold);
+            padding-left: 5px;
+        }
+
+        .contact-info li {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            color: var(--text-gray);
+            font-weight: 300;
+        }
+
+        .contact-info i {
+            color: var(--accent-gold);
+            width: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--dark-bg);
+            border: 1px solid var(--dark-border);
+            color: var(--text-light);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--accent-gold);
+            border-color: var(--accent-gold);
+            color: var(--dark-bg);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--dark-border);
+            padding-top: 2rem;
+            text-align: center;
+            color: var(--text-gray);
+            font-weight: 300;
+        }
+
+        .footer-bottom a {
+            color: var(--accent-gold);
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                right: -100%;
+                flex-direction: column;
+                background: var(--dark-card);
+                width: 80%;
+                height: calc(100vh - 70px);
+                padding: 2rem;
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+                transition: var(--transition);
+                border-left: 1px solid var(--dark-border);
+            }
+
+            .nav-menu.active {
+                right: 0;
+            }
+
+            .page-hero-title {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .trainers-grid,
+            .specialties-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .modal-content {
+                padding: 2rem;
+                width: 98%;
+            }
+
+            .calendar-grid {
+                grid-template-columns: repeat(7, 1fr);
+                font-size: 0.8rem;
+            }
+
+            .calendar-day {
+                padding: 0.5rem;
+                min-height: 80px;
+            }
+
+            .time-slot {
+                font-size: 0.7rem;
+                padding: 0.2rem 0.3rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-hero-title {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .cta-title {
+                font-size: 2rem;
+            }
+
+            .calendar-day-header {
+                padding: 0.5rem;
+                font-size: 0.7rem;
+            }
+        }
+
+        /* Animaciones adicionales */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <h1 class="logo">FitElite<span>Pro</span></h1>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Inicio</a></li>
+                <li class="nav-item"><a href="trainers.html" class="nav-link active">Entrenadores</a></li>
+                <li class="nav-item"><a href="habits.html" class="nav-link">Mi Progreso</a></li>
+                <li class="nav-item"><a href="articles.html" class="nav-link">Artículos</a></li>
+                <li class="nav-item"><a href="contact.html" class="nav-link">Contacto</a></li>
+                <li class="nav-item"><a href="login.html" class="nav-link login-btn">Iniciar Sesión</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="page-hero">
+        <div class="page-hero-content">
+            <h1 class="page-hero-title">NUESTROS <span class="highlight">EXPERTOS</span></h1>
+            <p class="page-hero-description">Conoce al equipo de profesionales certificados que te guiarán en tu
+                transformación física y mental. Más de 50 años de experiencia combinada.</p>
+        </div>
+    </section>
+
+    <!-- Trainers Section -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">ENTRENADORES CERTIFICADOS</h2>
+            <p class="section-subtitle">Profesionales con años de experiencia y especializaciones en diferentes áreas
+                del fitness</p>
+
+            <div class="trainers-grid">
+                <!-- Trainer 1 -->
+                <div class="trainer-card fade-in">
+                    <div class="trainer-image">
+                        <img src="https://powerliftingacademia.com/wp-content/uploads/2023/04/jorge-perez-frontal.jpg"
+                            alt="Carlos Méndez">
+                        <div class="trainer-overlay">
+                            <div class="trainer-specialty">ESPECIALISTA EN FUERZA</div>
+                            <h3>CARLOS MÉNDEZ</h3>
+                        </div>
+                    </div>
+                    <div class="trainer-content">
+                        <h3>CARLOS MÉNDEZ</h3>
+                        <div class="trainer-specialty">ESPECIALISTA EN FUERZA Y ACONDICIONAMIENTO</div>
+                        <p class="trainer-bio">Con más de 10 años de experiencia, Carlos se especializa en entrenamiento
+                            de fuerza, powerlifting y preparación física para atletas de alto rendimiento.</p>
+
+                        <div class="trainer-stats">
+                            <div class="stat-item">
+                                <div class="stat-number">10+</div>
+                                <div class="stat-label">Años</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">500+</div>
+                                <div class="stat-label">Clientes</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">98%</div>
+                                <div class="stat-label">Éxito</div>
+                            </div>
+                        </div>
+
+                        <div class="trainer-skills">
+                            <div class="skill-item">
+                                <div class="skill-name">
+                                    <span>Entrenamiento de Fuerza</span>
+                                    <span>95%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 95%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name">
+                                    <span>Nutrición Deportiva</span>
+                                    <span>88%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 88%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name">
+                                    <span>Preparación Física</span>
+                                    <span>92%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 92%"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-primary" onclick="showAvailability('carlos')"
+                            style="width: 100%;">CONSULTAR DISPONIBILIDAD</button>
+                    </div>
+                </div>
+
+                <!-- Trainer 2 -->
+                <div class="trainer-card fade-in">
+                    <div class="trainer-image">
+                        <img src="https://blog.apcpublicidad.com/hs-fs/hubfs/Dia_Nutricionista.jpg?width=3000&name=Dia_Nutricionista.jpg"
+                            alt="Ana Rodríguez">
+                        <div class="trainer-overlay">
+                            <div class="trainer-specialty">NUTRICIÓN Y BIENESTAR</div>
+                            <h3>ANA RODRÍGUEZ</h3>
+                        </div>
+                    </div>
+                    <div class="trainer-content">
+                        <h3>ANA RODRÍGUEZ</h3>
+                        <div class="trainer-specialty">ESPECIALISTA EN NUTRICIÓN Y BIENESTAR</div>
+                        <p class="trainer-bio">Ana combina su expertise en nutrición deportiva con entrenamiento
+                            funcional para crear programas integrales de transformación y bienestar sostenible.</p>
+
+                        <div class="trainer-stats">
+                            <div class="stat-item">
+                                <div class="stat-number">8+</div>
+                                <div class="stat-label">Años</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">400+</div>
+                                <div class="stat-label">Clientes</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">95%</div>
+                                <div class="stat-label">Éxito</div>
+                            </div>
+                        </div>
+
+                        <div class="trainer-skills">
+                            <div class="skill-item">
+                                <div class="skill-name">
+                                    <span>Nutrición Deportiva</span>
+                                    <span>96%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 96%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name">
+                                    <span>Yoga y Movilidad</span>
+                                    <span>90%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name">
+                                    <span>Bienestar Integral</span>
+                                    <span>94%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 94%"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-primary" onclick="showAvailability('ana')" style="width: 100%;">CONSULTAR
+                            DISPONIBILIDAD</button>
+                    </div>
+                </div>
+
+                <!-- Trainer 3 -->
+                <div class="trainer-card fade-in">
+                    <div class="trainer-image">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                            alt="Miguel Torres">
+                        <div class="trainer-overlay">
+                            <div class="trainer-specialty">MOVIMIENTO Y REHABILITACIÓN</div>
+                            <h3>MIGUEL TORRES</h3>
+                        </div>
+                    </div>
+                    <div class="trainer-content">
+                        <h3>MIGUEL TORRES</h3>
+                        <div class="trainer-specialty">ESPECIALISTA EN MOVIMIENTO Y REHABILITACIÓN</div>
+                        <p class="trainer-bio">Miguel se enfoca en corrección postural, movilidad y entrenamiento para
+                            poblaciones especiales y recuperación de lesiones. Certificado en FMS y yoga.</p>
+
+                        <div class="trainer-stats">
+                            <div class="stat-item">
+                                <div class="stat-number">12+</div>
+                                <div class="stat-label">Años</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">600+</div>
+                                <div class="stat-label">Clientes</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">97%</div>
+                                <div class="stat-label">Éxito</div>
+                            </div>
+                        </div>
+
+                        <div class="trainer-skills">
+                            <div class="skill-item">
+                                <div class="skill-name">
+                                    <span>Rehabilitación</span>
+                                    <span>93%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 93%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name">
+                                    <span>Movilidad Funcional</span>
+                                    <span>91%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 91%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name">
+                                    <span>Yoga Terapéutico</span>
+                                    <span>89%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 89%"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-primary" onclick="showAvailability('miguel')"
+                            style="width: 100%;">CONSULTAR DISPONIBILIDAD</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Specialties Section -->
+    <section class="specialties">
+        <div class="container">
+            <h2 class="section-title">ESPECIALIDADES</h2>
+            <p class="section-subtitle">Áreas de expertise de nuestro equipo de entrenadores</p>
+
+            <div class="specialties-grid">
+                <div class="specialty-card fade-in">
+                    <div class="specialty-icon">
+                        <i class="fas fa-dumbbell"></i>
+                    </div>
+                    <h3>ENTRENAMIENTO DE FUERZA</h3>
+                    <p>Programas personalizados para desarrollo muscular, powerlifting y mejora del rendimiento
+                        atlético.</p>
+                </div>
+
+                <div class="specialty-card fade-in">
+                    <div class="specialty-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3>NUTRICIÓN DEPORTIVA</h3>
+                    <p>Planes alimenticios personalizados para optimizar rendimiento, composición corporal y salud.</p>
+                </div>
+
+                <div class="specialty-card fade-in">
+                    <div class="specialty-icon">
+                        <i class="fas fa-running"></i>
+                    </div>
+                    <h3>PREPARACIÓN FÍSICA</h3>
+                    <p>Entrenamiento específico para deportistas y personas que buscan mejorar su condición física.</p>
+                </div>
+
+                <div class="specialty-card fade-in">
+                    <div class="specialty-icon">
+                        <i class="fas fa-user-injured"></i>
+                    </div>
+                    <h3>REHABILITACIÓN</h3>
+                    <p>Programas de recuperación de lesiones y mejora de movilidad para todas las edades.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content fade-in">
+                <h2 class="cta-title">¿LISTO PARA COMENZAR?</h2>
+                <p class="cta-description">Reserva tu consulta inicial gratuita con uno de nuestros entrenadores y
+                    descubre el programa perfecto para alcanzar tus objetivos.</p>
+                <button class="btn btn-primary" onclick="showAvailability('general')">RESERVAR CONSULTA
+                    GRATUITA</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal de Disponibilidad -->
+    <div id="availabilityModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('availabilityModal')">&times;</span>
+            <h2 id="modalTrainerName">DISPONIBILIDAD DE ENTRENADOR</h2>
+            <p id="modalTrainerDescription">Selecciona una fecha y horario disponible para tu sesión</p>
+
+            <div class="availability-container">
+                <div class="calendar-header">
+                    <div class="calendar-nav">
+                        <button class="calendar-nav-btn" onclick="changeMonth(-1)"><i
+                                class="fas fa-chevron-left"></i></button>
+                        <button class="calendar-nav-btn" onclick="changeMonth(1)"><i
+                                class="fas fa-chevron-right"></i></button>
+                    </div>
+                    <div class="current-month" id="currentMonth">Noviembre 2023</div>
+                    <button class="btn btn-secondary" onclick="resetCalendar()">HOY</button>
+                </div>
+
+                <div class="calendar-grid" id="calendarGrid">
+                    <!-- El calendario se genera dinámicamente con JavaScript -->
+                </div>
+
+                <div class="booking-form" id="bookingForm" style="display: none;">
+                    <div class="selected-slot-info">
+                        <h4>SESIÓN SELECCIONADA</h4>
+                        <p id="selectedSlotInfo">Fecha y hora seleccionada</p>
+                    </div>
+
+                    <form id="bookingFormElement">
+                        <div class="form-group">
+                            <label for="client-name">NOMBRE COMPLETO</label>
+                            <input type="text" id="client-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="client-email">CORREO ELECTRÓNICO</label>
+                            <input type="email" id="client-email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="client-phone">TELÉFONO</label>
+                            <input type="tel" id="client-phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="session-type">TIPO DE SESIÓN</label>
+                            <select id="session-type" required>
+                                <option value="">SELECCIONA EL TIPO</option>
+                                <option value="consultation">CONSULTA INICIAL</option>
+                                <option value="personal">ENTRENAMIENTO PERSONAL</option>
+                                <option value="nutrition">CONSULTA NUTRICIONAL</option>
+                                <option value="rehabilitation">REHABILITACIÓN</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="client-message">MENSAJE ADICIONAL (OPCIONAL)</label>
+                            <textarea id="client-message" rows="3"
+                                placeholder="Comentarios adicionales o objetivos específicos..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">CONFIRMAR RESERVA</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-logo">FitElite<span>Pro</span></h3>
+                    <p>Transformando vidas a través del fitness y la salud integral desde 2015. Más de 10,000 clientes
+                        satisfechos.</p>
+                    <div class="social-links">
+                        <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com" target="_blank"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>ENLACES RÁPIDOS</h4>
+                    <ul>
+                        <li><a href="index.html">INICIO</a></li>
+                        <li><a href="trainers.html">ENTRENADORES</a></li>
+                        <li><a href="habits.html">MI PROGRESO</a></li>
+                        <li><a href="articles.html">ARTÍCULOS</a></li>
+                        <li><a href="contact.html">CONTACTO</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>PROGRAMAS</h4>
+                    <ul>
+                        <li><a href="#">PÉRDIDA DE PESO</a></li>
+                        <li><a href="#">GANANCIA MUSCULAR</a></li>
+                        <li><a href="#">BIENESTAR INTEGRAL</a></li>
+                        <li><a href="#">ENTRENAMIENTO PERSONAL</a></li>
+                        <li><a href="#">NUTRICIÓN DEPORTIVA</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>CONTACTO</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> AV. FITNESS 123, CIUDAD</li>
+                        <li><i class="fas fa-phone"></i> 829-887-9800</li>
+                        <li><i class="fas fa-envelope"></i> INFO@FITELITEPRO.COM</li>
+                        <li><i class="fas fa-clock"></i> LUN-VIE: 5:00am-22:00pm</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 FITELITE PRO. TODOS LOS DERECHOS RESERVADOS. | <a href="privacy.html">POLÍTICA DE
+                        PRIVACIDAD</a> | <a href="terms.html">TÉRMINOS DE SERVICIO</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Variables globales
+        let currentDate = new Date();
+        let currentMonth = currentDate.getMonth();
+        let currentYear = currentDate.getFullYear();
+        let selectedTrainer = '';
+        let selectedDate = null;
+        let selectedTime = '';
+
+        // Navegación móvil
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Cerrar menú al hacer clic en enlace
+        document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+        }));
+
+        // Animaciones al hacer scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        fadeElements.forEach(el => {
+            observer.observe(el);
+        });
+
+        // Cambio de color del header al hacer scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(10, 10, 10, 0.98)';
+                header.style.backdropFilter = 'blur(20px)';
+            } else {
+                header.style.background = 'rgba(10, 10, 10, 0.95)';
+                header.style.backdropFilter = 'blur(20px)';
+            }
+        });
+
+        // Mostrar modal de disponibilidad
+        function showAvailability(trainer) {
+            selectedTrainer = trainer;
+            resetCalendar();
+
+            // Configurar información del entrenador
+            const modal = document.getElementById('availabilityModal');
+            const trainerName = document.getElementById('modalTrainerName');
+            const trainerDescription = document.getElementById('modalTrainerDescription');
+
+            switch (trainer) {
+                case 'carlos':
+                    trainerName.textContent = 'DISPONIBILIDAD - CARLOS MÉNDEZ';
+                    trainerDescription.textContent = 'Especialista en fuerza y acondicionamiento. Horarios disponibles para sesiones personales.';
+                    break;
+                case 'ana':
+                    trainerName.textContent = 'DISPONIBILIDAD - ANA RODRÍGUEZ';
+                    trainerDescription.textContent = 'Especialista en nutrición y bienestar. Horarios para consultas y sesiones de yoga.';
+                    break;
+                case 'miguel':
+                    trainerName.textContent = 'DISPONIBILIDAD - MIGUEL TORRES';
+                    trainerDescription.textContent = 'Especialista en movimiento y rehabilitación. Sesiones de movilidad y yoga terapéutico.';
+                    break;
+                default:
+                    trainerName.textContent = 'CONSULTA INICIAL GRATUITA';
+                    trainerDescription.textContent = 'Selecciona una fecha y horario para tu consulta inicial con uno de nuestros especialistas.';
+            }
+
+            modal.style.display = 'block';
+            document.getElementById('bookingForm').style.display = 'none';
+        }
+
+        // Cerrar modal
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+            selectedDate = null;
+            selectedTime = '';
+        }
+
+        // Cerrar modal al hacer clic fuera
+        window.onclick = function (event) {
+            const modals = document.querySelectorAll('.modal');
+            modals.forEach(modal => {
+                if (event.target == modal) {
+                    modal.style.display = 'none';
+                    selectedDate = null;
+                    selectedTime = '';
+                }
+            });
+        }
+
+        // Generar calendario
+        function generateCalendar() {
+            const calendarGrid = document.getElementById('calendarGrid');
+            const currentMonthElement = document.getElementById('currentMonth');
+
+            // Limpiar calendario
+            calendarGrid.innerHTML = '';
+
+            // Encabezados de días
+            const days = ['DOM', 'LUN', 'MAR', 'MIÉ', 'JUE', 'VIE', 'SÁB'];
+            days.forEach(day => {
+                const dayElement = document.createElement('div');
+                dayElement.className = 'calendar-day-header';
+                dayElement.textContent = day;
+                calendarGrid.appendChild(dayElement);
+            });
+
+            // Obtener primer día del mes y cantidad de días
+            const firstDay = new Date(currentYear, currentMonth, 1).getDay();
+            const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+
+            // Días vacíos al inicio
+            for (let i = 0; i < firstDay; i++) {
+                const emptyDay = document.createElement('div');
+                emptyDay.className = 'calendar-day empty-day';
+                calendarGrid.appendChild(emptyDay);
+            }
+
+            // Días del mes
+            for (let day = 1; day <= daysInMonth; day++) {
+                const dayElement = document.createElement('div');
+                dayElement.className = 'calendar-day';
+
+                const dayNumber = document.createElement('div');
+                dayNumber.className = 'day-number';
+                dayNumber.textContent = day;
+                dayElement.appendChild(dayNumber);
+
+                // Generar horarios disponibles (simulación)
+                const availabilitySlots = document.createElement('div');
+                availabilitySlots.className = 'availability-slots';
+
+                // Solo mostrar horarios para algunos días (simulación)
+                if (Math.random() > 0.3) {
+                    const times = ['09:00', '11:00', '14:00', '16:00', '18:00'];
+                    times.forEach(time => {
+                        // Algunos horarios están ocupados (simulación)
+                        if (Math.random() > 0.4) {
+                            const timeSlot = document.createElement('div');
+                            timeSlot.className = 'time-slot';
+                            timeSlot.textContent = time;
+                            timeSlot.onclick = () => selectTimeSlot(day, time, timeSlot);
+                            availabilitySlots.appendChild(timeSlot);
+                        } else {
+                            const timeSlot = document.createElement('div');
+                            timeSlot.className = 'time-slot booked';
+                            timeSlot.textContent = time;
+                            timeSlot.title = 'Horario no disponible';
+                            availabilitySlots.appendChild(timeSlot);
+                        }
+                    });
+                }
+
+                dayElement.appendChild(availabilitySlots);
+                calendarGrid.appendChild(dayElement);
+            }
+
+            // Actualizar mes actual
+            const monthNames = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+                "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+            ];
+            currentMonthElement.textContent = `${monthNames[currentMonth]} ${currentYear}`;
+        }
+
+        // Cambiar mes
+        function changeMonth(direction) {
+            currentMonth += direction;
+
+            if (currentMonth > 11) {
+                currentMonth = 0;
+                currentYear++;
+            } else if (currentMonth < 0) {
+                currentMonth = 11;
+                currentYear--;
+            }
+
+            generateCalendar();
+        }
+
+        // Resetear calendario a fecha actual
+        function resetCalendar() {
+            currentDate = new Date();
+            currentMonth = currentDate.getMonth();
+            currentYear = currentDate.getFullYear();
+            generateCalendar();
+        }
+
+        // Seleccionar horario
+        function selectTimeSlot(day, time, element) {
+            // Remover selección anterior
+            document.querySelectorAll('.time-slot').forEach(slot => {
+                if (!slot.classList.contains('booked')) {
+                    slot.style.background = 'rgba(212, 175, 55, 0.2)';
+                    slot.style.color = 'var(--accent-gold)';
+                }
+            });
+
+            // Marcar como seleccionado
+            element.style.background = 'var(--accent-gold)';
+            element.style.color = 'var(--dark-bg)';
+
+            // Guardar selección
+            selectedDate = new Date(currentYear, currentMonth, day);
+            selectedTime = time;
+
+            // Mostrar formulario de reserva
+            const bookingForm = document.getElementById('bookingForm');
+            const selectedSlotInfo = document.getElementById('selectedSlotInfo');
+
+            const monthNames = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+                "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+            ];
+
+            selectedSlotInfo.textContent = `${day} de ${monthNames[currentMonth]} ${currentYear} a las ${time} horas`;
+            bookingForm.style.display = 'block';
+
+            // Hacer scroll al formulario
+            bookingForm.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Formulario de reserva
+        document.getElementById('bookingFormElement').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const clientName = document.getElementById('client-name').value;
+            const sessionType = document.getElementById('session-type').value;
+
+            alert(`¡Reserva confirmada!\n\n${clientName}, tu ${sessionType.toLowerCase()} con ${getTrainerName(selectedTrainer)} ha sido programada para el ${selectedDate.getDate()} de ${getMonthName(selectedDate.getMonth())} ${selectedDate.getFullYear()} a las ${selectedTime}.\n\nTe enviaremos un correo de confirmación.`);
+
+            // Cerrar modal y resetear
+            closeModal('availabilityModal');
+            this.reset();
+        });
+
+        // Helper functions
+        function getTrainerName(trainer) {
+            switch (trainer) {
+                case 'carlos': return 'Carlos Méndez';
+                case 'ana': return 'Ana Rodríguez';
+                case 'miguel': return 'Miguel Torres';
+                default: return 'nuestro especialista';
+            }
+        }
+
+        function getMonthName(month) {
+            const monthNames = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+                "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+            ];
+            return monthNames[month];
+        }
+
+        // Efectos hover en tarjetas
+        document.querySelectorAll('.trainer-card, .specialty-card').forEach(card => {
+            card.addEventListener('mouseenter', function () {
+                this.style.transform = 'translateY(-10px)';
+            });
+
+            card.addEventListener('mouseleave', function () {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Inicializar calendario
+        document.addEventListener('DOMContentLoaded', generateCalendar);
+    </script>
+</body>
+
+</html>
